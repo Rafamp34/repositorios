@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { GroupModalComponent } from './group-modal.component';
+import { GroupSelectableComponent } from './group-selectable.component';
 
-describe('GroupModalComponent', () => {
-  let component: GroupModalComponent;
-  let fixture: ComponentFixture<GroupModalComponent>;
+describe('UserSelectableComponent', () => {
+  let component: GroupSelectableComponent;
+  let fixture: ComponentFixture<GroupSelectableComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ GroupModalComponent ],
+      declarations: [ GroupSelectableComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GroupModalComponent);
+    fixture = TestBed.createComponent(GroupSelectableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AnimationController, InfiniteScrollCustomEvent, ModalController, AlertController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { GroupModalComponent } from 'src/app/components/group-modal/group-modal.component'; // Cambiar al modal de grupo
+
 import { Paginated } from 'src/app/core/models/paginated.model';
 import { Group } from 'src/app/core/models/group.model';
 import { MyGroupsService } from 'src/app/core/services/my-groups.service'; // Cambiar al servicio de grupos
@@ -92,8 +92,8 @@ export class GroupsPage implements OnInit {
 
   private async presentModalGroup(mode: 'new' | 'edit', group: Group | undefined = undefined) {
     const modal = await this.modalCtrl.create({
-      component: GroupModalComponent,
-      componentProps: (mode == 'edit' ? { group: group } : {})
+      componentProps: (mode == 'edit' ? { group: group } : {}),
+      component: null
     });
     modal.onDidDismiss().then((response: any) => {
       switch (response.role) {

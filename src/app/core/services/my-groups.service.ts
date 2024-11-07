@@ -16,7 +16,7 @@ export interface PaginatedRaw<T> {
 
 export interface GroupRaw {
     id: string;
-    nombre: string;
+    name: string;
 }
 
 @Injectable({
@@ -40,7 +40,7 @@ export class MyGroupsService {
                 data: res.data.map<Group>((d: GroupRaw) => {
                     return {
                         id: d.id,
-                        name: d.nombre,
+                        name: d.name,
                     };
                 })
             };

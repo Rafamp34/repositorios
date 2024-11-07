@@ -25,17 +25,19 @@ export interface GroupRaw {
     }
     getOne(data: GroupRaw):Group {
         return {
-            id:data.id, 
-            name:data.nombre, 
+            id: data.id,
+            name: data.nombre,
+            picture: 'https://via.placeholder.com/150'
+
         };
     }
-    getAdded(data: any):Person {
+    getAdded(data: any):Group {
         throw new Error("Method not implemented.");
     }
-    getUpdated(data: any):Person {
+    getUpdated(data: any):Group {
         throw new Error("Method not implemented.");
     }
-    getDeleted(data: any):Person {
+    getDeleted(data: any):Group {
         throw new Error("Method not implemented.");
     }
   }
