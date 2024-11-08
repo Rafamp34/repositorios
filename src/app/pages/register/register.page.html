@@ -1,0 +1,125 @@
+<!-- src/app/register/register.page.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="register-wrapper">
+    <!-- Imagen/logo a la izquierda -->
+    <div class="image-container">
+      <img src="assets/icon/logo.png" alt="Imagen de Registro" class="register-image" />
+    </div>
+    
+    <!-- Columna del Formulario -->
+    <div class="form-container">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div class="form-grid">
+          <!-- Nombre -->
+          <div class="form-item">
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input type="text" formControlName="fullName"></ion-input>
+            <ion-text color="danger" *ngIf="registerForm.get('fullName')?.invalid && (registerForm.get('fullName')?.dirty || registerForm.get('fullName')?.touched)">
+              <p *ngIf="registerForm.get('fullName')?.errors?.['required']">El nombre es requerido.</p>
+              <p *ngIf="registerForm.get('fullName')?.errors?.['minlength']">El nombre debe tener al menos 2 caracteres.</p>
+            </ion-text>
+          </div>
+
+          <!-- Apellido -->
+          <div class="form-item">
+            <ion-label position="floating">Apellido</ion-label>
+            <ion-input type="text" formControlName="surname"></ion-input>
+            <ion-text color="danger" *ngIf="registerForm.get('surname')?.invalid && (registerForm.get('surname')?.dirty || registerForm.get('surname')?.touched)">
+              <p *ngIf="registerForm.get('surname')?.errors?.['required']">El apellido es requerido.</p>
+              <p *ngIf="registerForm.get('surname')?.errors?.['minlength']">El apellido debe tener al menos 2 caracteres.</p>
+            </ion-text>
+          </div>
+
+          <!-- Fecha de Nacimiento -->
+          <div class="form-item">
+            <ion-label position="floating">Fecha de Nacimiento</ion-label>
+            <div class="date-button-container">
+              <ion-button (click)="toggleDatepicker()" fill="outline" class="select-date-button ion-margin-bottom">
+                {{ showDatepicker ? 'Ocultar Selector de Fecha' : 'Seleccionar Fecha' }}
+              </ion-button>
+          
+              <div *ngIf="showDatepicker">
+                <ion-datetime displayFormat="DD/MM/YYYY" formControlName="birthday" class="custom-datetime"></ion-datetime>
+                <ion-text color="danger" *ngIf="registerForm.get('birthday')?.invalid && (registerForm.get('birthday')?.dirty || registerForm.get('birthday')?.touched)">
+                  <p *ngIf="registerForm.get('birthday')?.errors?.['required']">La fecha de nacimiento es requerida.</p>
+                </ion-text>
+              </div>
+            </div>
+          </div>
+
+          <!-- Género -->
+          <div class="form-item">
+            <ion-label position="floating">Género</ion-label>
+            <ion-select formControlName="gender">
+              <ion-select-option value="male">Masculino</ion-select-option>
+              <ion-select-option value="female">Femenino</ion-select-option>
+              <ion-select-option value="other">Otro</ion-select-option>
+            </ion-select>
+            <ion-text color="danger" *ngIf="registerForm.get('gender')?.invalid && (registerForm.get('gender')?.dirty || registerForm.get('gender')?.touched)">
+              <p *ngIf="registerForm.get('gender')?.errors?.['required']">El género es requerido.</p>
+            </ion-text>
+          </div>
+
+          <!-- Nombre de Usuario -->
+          <div class="form-item">
+            <ion-label position="floating">Nombre de Usuario</ion-label>
+            <ion-input type="text" formControlName="username"></ion-input>
+            <ion-text color="danger" *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)">
+              <p *ngIf="registerForm.get('username')?.errors?.['required']">El nombre de usuario es requerido.</p>
+              <p *ngIf="registerForm.get('username')?.errors?.['minlength']">El nombre de usuario debe tener al menos 3 caracteres.</p>
+            </ion-text>
+          </div>
+
+          <!-- Correo Electrónico -->
+          <div class="form-item">
+            <ion-label position="floating">Correo Electrónico</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+            <ion-text color="danger" *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+              <p *ngIf="registerForm.get('email')?.errors?.['required']">El correo electrónico es requerido.</p>
+              <p *ngIf="registerForm.get('email')?.errors?.['email']">Ingresa un correo electrónico válido.</p>
+            </ion-text>
+          </div>
+
+          <!-- Contraseña -->
+          <div class="form-item">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+            <ion-text color="danger" *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+              <p *ngIf="registerForm.get('password')?.errors?.['required']">La contraseña es requerida.</p>
+              <p *ngIf="registerForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</p>
+            </ion-text>
+          </div>
+
+          <!-- Confirmar Contraseña -->
+          <div class="form-item">
+            <ion-label position="floating">Confirmar Contraseña</ion-label>
+            <ion-input type="password" formControlName="confirmPassword"></ion-input>
+            <ion-text color="danger" *ngIf="registerForm.errors?.['mismatch'] && (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched)">
+              <p>Las contraseñas no coinciden.</p>
+            </ion-text>
+          </div>
+        </div>
+
+        <!-- Botón de Registro -->
+        <ion-button expand="block" type="submit" class="ion-margin-top" color="secondary" [disabled]="registerForm.invalid">
+          Registrarse
+        </ion-button>
+      </form>
+      <div class="login-link">
+        <p>¿Ya tienes una cuenta? <a routerLink="/login">Inicia Sesión aquí</a></p>
+      </div>
+    </div>
+
+    <!-- Imagen/logo a la derecha -->
+    <div class="image-container">
+      <img src="assets/icon/logo.png" alt="Imagen de Registro" class="register-image" />
+    </div>
+  </div>
+</ion-content>

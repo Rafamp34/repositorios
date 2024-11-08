@@ -17,11 +17,12 @@ import { GroupsMappingJsonServer } from './core/repositories/impl/groups-mapping
 import { GroupsService } from './core/services/impl/groups.service';
 import { PersonModalComponent } from './components/person-modal/person-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GroupSelectableComponent } from './components/group-selectable/group-selectable.component';
+import { GroupModalComponent } from './components/group-modal/group-modal.component';
 import { PeopleMappingStrapi } from './core/repositories/impl/people-mapping-strapi.service';
 import { GroupsMappingStrapi } from './core/repositories/impl/groups-mapping-strapi.service';
+import { GroupSelectableComponent } from './components/group-selectable/group-selectable.component';
 @NgModule({
-  declarations: [AppComponent, PersonModalComponent, GroupSelectableComponent ],
+  declarations: [AppComponent, PersonModalComponent, GroupModalComponent, GroupSelectableComponent ],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 

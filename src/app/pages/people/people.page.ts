@@ -128,37 +128,45 @@ export class PeoplePage implements OnInit {
     
   }
 
-  private async presentModalPerson(mode:'new'|'edit', person:Person|undefined=undefined){
+  private async presentModalPerson(mode: 'new' | 'edit', person: Person | undefined = undefined) {
     const modal = await this.modalCtrl.create({
-      component:PersonModalComponent,
-      componentProps:(mode=='edit'?{
-        person: person
-      }:{})
+      component: PersonModalComponent,
+      componentProps: mode === 'edit' ? { person: person } : {}
     });
-    modal.onDidDismiss().then((response:any)=>{
+  
+    modal.onDidDismiss().then((response: any) => {
       switch (response.role) {
         case 'new':
           this.peopleSvc.add(response.data).subscribe({
-            next:res=>{
+            next: res => {
               this.refresh();
             },
-            error:err=>{}
+            error: err => {
+              console.error('Error adding person', err);
+            }
           });
           break;
         case 'edit':
-          this.peopleSvc.update(person!.id, response.data).subscribe({
-            next:res=>{
-              this.refresh();
-            },
-            error:err=>{}
-          });
+          // Verificar que `person` no sea `undefined` antes de usar `person.id`
+          if (person) {
+            this.peopleSvc.update(person.id, response.data).subscribe({
+              next: res => {
+                this.refresh();
+              },
+              error: err => {
+                console.error('Error updating person', err);
+              }
+            });
+          }
           break;
         default:
           break;
       }
     });
+  
     await modal.present();
   }
+  
 
   async onAddPerson(){
     await this.presentModalPerson('new');

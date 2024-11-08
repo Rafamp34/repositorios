@@ -1,0 +1,19 @@
+.splash-content {
+    --background: #ffffff; /* Cambia el color de fondo si lo deseas */
+  }
+  
+  .splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .splash-logo {
+    width: 150px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    margin-bottom: 20px;
+  }
+  

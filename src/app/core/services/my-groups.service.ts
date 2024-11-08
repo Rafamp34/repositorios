@@ -24,7 +24,7 @@ export interface GroupRaw {
 })
 export class MyGroupsService {
 
-    private apiUrl: string = "http://localhost:3000/grupos";
+    private apiUrl: string = "http://localhost:1337/api/groups";
 
     constructor(
         private http: HttpClient

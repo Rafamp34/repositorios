@@ -1,0 +1,87 @@
+/* src/app/register/register.page.scss */
+
+.register-wrapper {
+    display: flex;
+    flex-direction: row; /* Coloca las imágenes y el formulario en una fila */
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Espacia uniformemente entre las imágenes y el formulario */
+    height: 100%;
+    padding: 20px; /* Añadir espacio alrededor */
+  }
+  
+  .image-container {
+    flex: 1; /* Cada imagen ocupará un espacio igual */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+  }
+  
+  .register-image {
+    max-width: 400px; /* Limita el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la relación de aspecto */
+  }
+  
+  .form-container {
+    flex: 2; /* El formulario ocupará más espacio que las imágenes */
+    padding: 20px; /* Espacio interno para el formulario */
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna para una disposición más limpia */
+    gap: 16px; /* Espacio entre los campos */
+  }
+  
+  .form-item {
+    display: flex;
+    flex-direction: column; /* Coloca la etiqueta y el input en una columna */
+  }
+  
+  .date-button-container {
+    display: flex; /* Usa flexbox para alinear los elementos en línea */
+    align-items: center; /* Alinea verticalmente al centro */
+  }
+  
+  .select-date-button {
+    --background: var(--ion-color-light);
+    --color: var(--ion-color-primary);
+    height: 30px; /* Cambiar la altura del botón */
+    border-radius: 15px; /* Hacer el botón más redondeado */
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    padding: 0 8px; /* Espaciado horizontal más pequeño */
+    margin-right: 10px; /* Espacio a la derecha del botón */
+    max-width: 150px; /* Limitar el ancho máximo del botón */
+    width: auto; /* Permitir que el ancho se ajuste al contenido */
+    display: inline-block; /* Cambiar a bloque en línea para evitar que ocupe todo el ancho */
+  }
+  ion-button {
+    margin-top: 10px; /* Espacio entre el botón y el campo de entrada */
+  }
+  
+  .custom-datetime {
+    border: 1px solid #ccc; /* Borde alrededor del campo */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interno */
+    background-color: #000000; /* Fondo más suave para el selector */
+  }
+  
+  ion-text p {
+    margin: 4px 0;
+  }
+  
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .login-link a {
+    color: var(--ion-color-secondary);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Ajustes para mejorar la visualización de mensajes de error */
+  ion-text {
+    display: block;
+    font-size: 0.875em;
+  }
+  

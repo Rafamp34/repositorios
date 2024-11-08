@@ -1,0 +1,44 @@
+/* src/app/login/login.page.scss */
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center;     /* Centra horizontalmente */
+    height: 100%;
+    padding: 20px;           /* Espaciado interno */
+    box-sizing: border-box;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 500px;        /* Limita el ancho máximo */
+    padding: 20px;           /* Agrega padding interno al formulario */
+    box-sizing: border-box;
+    background-color: var(--ion-background-color, #fff); /* Opcional: fondo para destacar el formulario */
+    border-radius: 8px;      /* Opcional: bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra para darle profundidad */
+  }
+  
+  ion-item {
+    /* Restablece el padding a un valor predeterminado o ajusta según necesidad */
+    --inner-padding-start: 16px;
+    --padding-start: 16px;
+    margin-bottom: 16px;     /* Espacio entre los campos */
+  }
+  
+  ion-button {
+    margin-top: 20px;        /* Espacio superior para el botón */
+  }
+  
+  .register-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .register-link a {
+    color: var(--ion-color-primary);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  

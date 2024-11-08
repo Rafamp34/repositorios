@@ -1,17 +1,25 @@
+<!-- src/app/home/home.page.html -->
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title class="ion-text-center">
+      Bienvenido
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="home-container">
+    <img src="assets/icon/logo.png" alt="Imagen de Inicio" class="home-image"/>
+    <h2 class="ion-text-center">¡Bienvenido a Nuestra Aplicación!</h2>
+    <p class="ion-text-center">
+      Por favor, inicia sesión o regístrate para continuar.
+    </p>
+    <ion-button expand="block" color="primary" routerLink="/login">
+      Iniciar Sesión
+    </ion-button>
+    <ion-button expand="block" color="secondary" routerLink="/register">
+      Registrarse
+    </ion-button>
+  </div>
 </ion-content>
-
