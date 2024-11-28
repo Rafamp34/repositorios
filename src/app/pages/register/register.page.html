@@ -1,4 +1,3 @@
-<!-- src/app/register/register.page.html -->
 
 <ion-header [translucent]="true">
   <ion-toolbar>
@@ -8,16 +7,13 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="register-wrapper">
-    <!-- Imagen/logo a la izquierda -->
     <div class="image-container">
       <img src="assets/icon/logo.png" alt="Imagen de Registro" class="register-image" />
     </div>
-    
-    <!-- Columna del Formulario -->
+  
     <div class="form-container">
       <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
         <div class="form-grid">
-          <!-- Nombre -->
           <div class="form-item">
             <ion-label position="floating">Nombre</ion-label>
             <ion-input type="text" formControlName="fullName"></ion-input>
@@ -27,7 +23,6 @@
             </ion-text>
           </div>
 
-          <!-- Apellido -->
           <div class="form-item">
             <ion-label position="floating">Apellido</ion-label>
             <ion-input type="text" formControlName="surname"></ion-input>
@@ -37,7 +32,6 @@
             </ion-text>
           </div>
 
-          <!-- Fecha de Nacimiento -->
           <div class="form-item">
             <ion-label position="floating">Fecha de Nacimiento</ion-label>
             <div class="date-button-container">
@@ -54,7 +48,6 @@
             </div>
           </div>
 
-          <!-- Género -->
           <div class="form-item">
             <ion-label position="floating">Género</ion-label>
             <ion-select formControlName="gender">
@@ -67,7 +60,6 @@
             </ion-text>
           </div>
 
-          <!-- Nombre de Usuario -->
           <div class="form-item">
             <ion-label position="floating">Nombre de Usuario</ion-label>
             <ion-input type="text" formControlName="username"></ion-input>
@@ -77,7 +69,6 @@
             </ion-text>
           </div>
 
-          <!-- Correo Electrónico -->
           <div class="form-item">
             <ion-label position="floating">Correo Electrónico</ion-label>
             <ion-input type="email" formControlName="email"></ion-input>
@@ -87,7 +78,6 @@
             </ion-text>
           </div>
 
-          <!-- Contraseña -->
           <div class="form-item">
             <ion-label position="floating">Contraseña</ion-label>
             <ion-input type="password" formControlName="password"></ion-input>
@@ -97,7 +87,6 @@
             </ion-text>
           </div>
 
-          <!-- Confirmar Contraseña -->
           <div class="form-item">
             <ion-label position="floating">Confirmar Contraseña</ion-label>
             <ion-input type="password" formControlName="confirmPassword"></ion-input>
@@ -107,7 +96,6 @@
           </div>
         </div>
 
-        <!-- Botón de Registro -->
         <ion-button expand="block" type="submit" class="ion-margin-top" color="secondary" [disabled]="registerForm.invalid">
           Registrarse
         </ion-button>
@@ -117,7 +105,6 @@
       </div>
     </div>
 
-    <!-- Imagen/logo a la derecha -->
     <div class="image-container">
       <img src="assets/icon/logo.png" alt="Imagen de Registro" class="register-image" />
     </div>
